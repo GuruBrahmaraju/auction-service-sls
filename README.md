@@ -1,4 +1,4 @@
-# Codingly.io: Base Serverless Framework Template
+# GuruBrahmaraju: Base Serverless Framework Template
 
 https://gurubrahmaraju.com
 

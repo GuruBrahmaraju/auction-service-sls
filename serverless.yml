@@ -11,14 +11,20 @@ provider:
   memorySize: 256
   stage: ${opt:stage, 'dev'}
   region: ap-south-1
-  
+  iamRoleStatements:
+    - ${file(iam/AuctionTableiam.yml):AuctionTable}
+
+resources:
+  Resources:
+    AuctionsTable: ${file(resources/AuctionTable.yml):AuctionTable}
+
 functions:
-  hello:
-    handler: src/handlers/hello.handler
+  createAuction:
+    handler: src/handlers/createAuction.handler
     events:
       - http:
-          method: GET
-          path: /hello
+          method: POST
+          path: /auction
 custom:
   bundle:
     linting: false
